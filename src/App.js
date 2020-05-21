@@ -15,7 +15,9 @@ class App extends Component {
   allowed to submit.
   */
   state = {
-     users : [{ username: 'Chan' }, { username: 'Raghav' }, { username: 'Harsh' }, { username: 'Pari' }],
+     users : [{ username: 'Chan' }, { username: 'Raghav' }, 
+              //{ username: 'Harsh' }, { username: 'Pari' }
+             ],
      messages : [],
   }
   
@@ -30,8 +32,9 @@ class App extends Component {
       <div className="App">
         <Header />
         <div className="container">
-          <ChatWindow user = {this.state.users[0]} messages = {this.state.messages} addMessage = {this.addMessage} />
-          <ChatWindow user = {this.state.users[1]} messages = {this.state.messages} addMessage = {this.addMessage} />
+       {this.state.users.map(user=>(
+         <ChatWindow user = {user} messages = {this.state.messages} addMessage = {this.addMessage} />
+       ))}
           
         </div>
       </div>
